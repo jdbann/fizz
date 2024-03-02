@@ -1,13 +1,20 @@
 package scene
 
-import "github.com/jdbann/fizz/geo"
+import (
+	"github.com/jdbann/fizz/geo"
+	"github.com/mattn/go-runewidth"
+)
 
 type Sprite struct {
 	position geo.Point
-	texture  rune
+	texture  string
 }
 
-func NewSprite(position geo.Point, texture rune) *Sprite {
+func NewSprite(position geo.Point, texture string) *Sprite {
+	if runewidth.StringWidth(texture) > 1 {
+		panic("cannot handle textures wider than one cell")
+	}
+
 	return &Sprite{
 		position: position,
 		texture:  texture,
