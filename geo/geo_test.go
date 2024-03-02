@@ -25,8 +25,8 @@ func TestRectAroundPoint(t *testing.T) {
 			point: geo.Point{0, 0},
 			size:  geo.Size{5, 5},
 			wantRect: geo.Rect{
-				Origin: geo.Point{-2, -2},
-				Size:   geo.Size{5, 5},
+				Position: geo.Point{-2, -2},
+				Size:     geo.Size{5, 5},
 			},
 		},
 		{
@@ -34,8 +34,8 @@ func TestRectAroundPoint(t *testing.T) {
 			point: geo.Point{10, 10},
 			size:  geo.Size{4, 4},
 			wantRect: geo.Rect{
-				Origin: geo.Point{8, 8},
-				Size:   geo.Size{4, 4},
+				Position: geo.Point{8, 8},
+				Size:     geo.Size{4, 4},
 			},
 		},
 	}

@@ -23,11 +23,11 @@ func (s Scene) RenderString(size geo.Size) (string, error) {
 	XLoop:
 		for x := min.X; x < max.X; x++ {
 			for _, sprite := range s.sprites {
-				if !sprite.position.Is(x, y) {
+				if !sprite.rect.Contains(geo.Point{X: x, Y: y}) {
 					continue
 				}
 
-				if _, err := b.WriteString(sprite.texture); err != nil {
+				if _, err := b.WriteRune(sprite.RuneAt(geo.Point{X: x, Y: y})); err != nil {
 					return "", err
 				}
 

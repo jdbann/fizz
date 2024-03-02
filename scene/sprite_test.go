@@ -10,9 +10,15 @@ import (
 )
 
 func TestNewSprite(t *testing.T) {
-	t.Run("panics when texture is wider than one cell", func(t *testing.T) {
+	t.Run("texture contains runes wider than one cell", func(t *testing.T) {
 		assert.Assert(t, cmp.Panics(func() {
 			scene.NewSprite(geo.Point{}, "😳")
+		}))
+	})
+
+	t.Run("texture has inconsistent line widths", func(t *testing.T) {
+		assert.Assert(t, cmp.Panics(func() {
+			scene.NewSprite(geo.Point{}, "XX\nX")
 		}))
 	})
 }
