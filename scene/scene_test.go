@@ -55,6 +55,20 @@ func TestScene_RenderString(t *testing.T) {
 			},
 			renderSize: geo.Size{Width: 7, Height: 7},
 		},
+		{
+			name: "large sprite",
+			sprites: []*scene.Sprite{
+				scene.NewSprite(geo.Point{X: 0, Y: 0}, "XXX\nXXX\nXXX"),
+			},
+			renderSize: geo.Size{Width: 5, Height: 5},
+		},
+		{
+			name: "ring as single sprite",
+			sprites: []*scene.Sprite{
+				scene.NewSprite(geo.Point{X: 0, Y: 0}, "╭─╮\n│ │\n╰─╯"),
+			},
+			renderSize: geo.Size{Width: 7, Height: 7},
+		},
 	}
 
 	for _, tc := range testCases {

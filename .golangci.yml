@@ -14,5 +14,7 @@ linters-settings:
         disabled: true
       - name: exported
         disabled: true
+      - name: line-length-limit
+        arguments: [120]
       - name: package-comments
         disabled: true
