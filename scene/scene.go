@@ -27,7 +27,7 @@ func (s Scene) RenderString(size geo.Size) (string, error) {
 					continue
 				}
 
-				if _, err := b.WriteRune(sprite.texture); err != nil {
+				if _, err := b.WriteString(sprite.texture); err != nil {
 					return "", err
 				}
 
