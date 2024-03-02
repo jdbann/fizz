@@ -1,0 +1,18 @@
+issues:
+  exclude-use-default: false
+linters:
+  disable-all: true
+  enable:
+    - revive
+linters-settings:
+  revive:
+    enable-all-rules: true
+    rules:
+      - name: add-constant
+        disabled: true
+      - name: cognitive-complexity
+        disabled: true
+      - name: exported
+        disabled: true
+      - name: package-comments
+        disabled: true
